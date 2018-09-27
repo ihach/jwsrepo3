@@ -1,0 +1,55 @@
+
+//>>>
+mysql> SELECT * FROM Cars INTO OUTFILE '/tmp/cars.csv' FIELDS TERMINATED BY ',';
+
+$ cat /tmp/cars
+
+mysql> DELETE FROM Cars;
+
+mysql> LOAD DATA INFILE '/tmp/cars.csv' INTO TABLE Cars FIELDS TERMINATED BY ','
+
+//>>>
+
+SELECT "ID","NAME","SALARY","SAL1","SAL2","SAL3","SAL4","SAL5","SAL6","SAL7","SAL8","SAL9","SAL10","SAL11","SAL12","SAL13","SAL14","SAL15","SAL16","SAL17","SAL18","SAL19","SAL20","SAL21","SAL22","SAL23","SAL24","SAL25","SAL26"
+UNION ALL
+SELECT *
+FROM addstock25
+INTO OUTFILE "E:\\JOSE DATA\\addstock7.csv"
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n
+
+(SELECT 'Order Number','Order Date','Status')
+UNION 
+(SELECT orderNumber,orderDate, status
+FROM orders
+INTO OUTFILE 'C:/tmp/orders.csv'
+FIELDS ENCLOSED BY '"' 
+TERMINATED BY ';' 
+ESCAPED BY '"'
+LINES TERMINATED BY '\r\n');
+
+SELECT 
+    orderNumber, orderDate, IFNULL(shippedDate, 'N/A')
+FROM
+    orders INTO OUTFILE 'C:/tmp/orders2.csv' 
+    FIELDS ENCLOSED BY '"' 
+    TERMINATED BY ';' 
+    ESCAPED BY '"' LINES 
+    TERMINATED BY '\r\n';
+
+//>>> table names
+
+SHOW TABLES WHERE Tables_in_test LIKE 'a%';
+
+SELECT table_name FROM information_schema.tables where table_schema='<your_database_name>';
+
+
+
+
+
+
+
+
+
+
